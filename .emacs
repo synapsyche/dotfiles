@@ -2,7 +2,15 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+;; Initialize Package Sources
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("elpa" . "https://elpa.gnu.org/packages/")))
+
 (package-initialize)
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; Stop Gnu Emacs startup screen
 (setq inhibit-startup-screen t)
